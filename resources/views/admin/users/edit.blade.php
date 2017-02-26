@@ -41,13 +41,21 @@
         </div>
         {!! Form::close() !!}
 
-        {!! Form::open(['method'=> 'DELETE', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
+        {!! Form::open(['method'=> 'DELETE', 'id'=>'delete_users', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
             <div class="form-group">
                 {!! Form::submit('Delete User', ['class'=>'btn btn-danger'])!!}
             </div>
         {!! Form::close() !!}
     </div>
 
-
-
+    <script>
+        $(function(){
+            $('#delete_users').submit(function(e){
+                if (1 > 0){
+                    alert('ARE YOU SURE');
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
 @stop
