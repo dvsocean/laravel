@@ -1,6 +1,15 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if(Session::has('deleted_user'))
+        <h3 class="bg-success img-rounded text-center"><strong>{{session('deleted_user')}}</strong></h3>
+        @endif
+    @if(Session::has('update_user'))
+        <h3 class="bg-success img-rounded text-center"><strong>{{session('update_user')}}</strong></h3>
+        @endif
+    @if(Session::has('new_user'))
+        <h3 class="bg-success img-rounded text-center"><strong>{{session('new_user')}}</strong></h3>
+    @endif
     <h1>System Users</h1>
 
     <table class="table table-striped">

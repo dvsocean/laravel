@@ -5,7 +5,7 @@
     @include('includes.form_errors')
 
     <div class="col-md-3">
-        <img src="{{$user->photo ? $user->photo->file: '/images/PLACEHOLDER.JPG'}}" height="170" width="170" class="img-responsive img-circle">
+        <img src="{{$user->photo ? $user->photo->file: '/images/PLACEHOLDER.JPG'}}" height="200" width="200" class="img-responsive img-rounded">
     </div>
 
     <div class="col-md-9">
@@ -39,6 +39,12 @@
         <div class="form-group">
             {!! Form::submit('Update', ['class'=>'btn btn-primary'])!!}
         </div>
+        {!! Form::close() !!}
+
+        {!! Form::open(['method'=> 'DELETE', 'action'=>['AdminUsersController@destroy', $user->id]]) !!}
+            <div class="form-group">
+                {!! Form::submit('Delete User', ['class'=>'btn btn-danger'])!!}
+            </div>
         {!! Form::close() !!}
     </div>
 
